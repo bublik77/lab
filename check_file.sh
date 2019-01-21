@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+
 FILE_NAME="DevOps_Lab"
 DATE="$(date +%Y_%m_%d)"
 NAME="$USER"
@@ -25,6 +26,7 @@ then
 	tar czf ${FILE_NAME}_${LAST_NAME}.tar.gz $FILE_NAME
 else
 	print "There is no last name, so we will be to use user name: %s, insted LAST NAME\n" "$NAME"
+	tar czf ${FILE_NAME}_${NAME}.tar.gz $FILE_NAME
 fi
 
 
