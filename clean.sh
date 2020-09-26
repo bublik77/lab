@@ -10,7 +10,7 @@ DIR_CURRENT="$(pwd)"
 
 checks(){
 
-	if [[ $1 =~ ".mp3" ]] || [[ $1 =~ ".flac" ]]
+    if [[ $1 =~ ".mp3" ]] || [[ $1 =~ ".flac" ]]
     then
        	mv $1 $MUSIC
     elif [[ $1 =~ ".mov" ]] || [[ $1 =~ ".avi" ]]
