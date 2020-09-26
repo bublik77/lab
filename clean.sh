@@ -24,30 +24,21 @@ checks(){
                	then
                        	rm $1
                	fi
-        elif [[ -d $1 ]] && ! [[ $1 == $VIDEOS ]] && ! [[ $1 == $IMAGES ]] && ! [[ $1 == $MUSIC ]]
-        then
-               	cd $1
-               	for j in $1/*
-               	do
-                       	if [[ $j =~ ".mp3" ]] || [[ $j =~ ".flac" ]]
-                       	then
-                               	mv $j $MUSIC
-                       	elif [[ $j =~ ".mov" ]] || [[ $j =~ ".avi" ]]
-                       	then
-                               	mv $j $VIDEOS
-                       	elif [[ $j =~ ".jpg" ]] || [[ $j =~ ".png" ]]
-                       	then
-                               	mv $j $IMAGES
-                       	elif [[ $j =~ ".log" ]]
-                       	then
-                               	rm $j
-                       	fi
-               	done
-       	fi
+    fi
 }
 
 
 for i in $DIR_CURRENT/*
 do
-	checks $i
+	if [[ -f $i ]]
+	then
+		checks $i
+	elif [[ -d $i ]] && ! [[ $i == $VIDEOS ]] && ! [[ $i == $IMAGES ]] && ! [[ $i == $MUSIC ]]
+	then
+		cd $i
+		for j in $i/*
+		do
+			checks $j
+		done
+	fi
 done
