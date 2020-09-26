@@ -9,21 +9,18 @@ DIR_CURRENT="$(pwd)"
 [ -d $MUSIC ] || mkdir $MUSIC
 
 checks(){
-	if [[ -f $1 ]]
-        then
-               	if [[ $1 =~ ".mp3" ]] || [[ $1 =~ ".flac" ]]
-               	then
-                       	mv $1 $MUSIC
-               	elif [[ $1 =~ ".mov" ]] || [[ $1 =~ ".avi" ]]
-               	then
-                       	mv $1 $VIDEOS
-               	elif [[ $1 =~ ".jpg" ]] || [[ $1 =~ ".png" ]]
-               	then
-                       	mv $1 $IMAGES
-               	elif [[ $1 =~ ".log" ]]
-               	then
-                       	rm $1
-               	fi
+	if [[ $1 =~ ".mp3" ]] || [[ $1 =~ ".flac" ]]
+    then
+       	mv $1 $MUSIC
+    elif [[ $1 =~ ".mov" ]] || [[ $1 =~ ".avi" ]]
+    then
+       	mv $1 $VIDEOS
+    elif [[ $1 =~ ".jpg" ]] || [[ $1 =~ ".png" ]]
+    then
+    	mv $1 $IMAGES
+    elif [[ $1 =~ ".log" ]]
+    then
+       	rm $1
     fi
 }
 
