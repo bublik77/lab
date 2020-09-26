@@ -9,6 +9,7 @@ DIR_CURRENT="$(pwd)"
 [ -d $MUSIC ] || mkdir $MUSIC
 
 checks(){
+
 	if [[ $1 =~ ".mp3" ]] || [[ $1 =~ ".flac" ]]
     then
        	mv $1 $MUSIC
